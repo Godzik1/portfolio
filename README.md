@@ -1,143 +1,21 @@
-# Moja Wizytówka
+# wizytówki.dev - Portfolio Website
 
-Profesjonalna strona-wizytówka zbudowana z **Next.js 15**, **Tailwind CSS v4** i **TypeScript**.
+A modern freelancer portfolio built with **Next.js 15**, **Tailwind CSS v4** and **TypeScript**. Showcasing business card website services for small businesses.
 
-## Szybki start (uruchomienie lokalnie)
+## Tech Stack
 
-```bash
-# 1. Zainstaluj zależności (tylko raz)
-npm install
+- [Next.js 15](https://nextjs.org) - React framework
+- [Tailwind CSS v4](https://tailwindcss.com) - styling
+- [Lucide React](https://lucide.dev) - icons
+- [TypeScript](https://www.typescriptlang.org) - type safety
 
-# 2. Uruchom serwer deweloperski
-npm run dev
-```
-
-Otwórz [http://localhost:3000](http://localhost:3000) w przeglądarce.
-
----
-
-## Co musisz dostosować (TODO)
-
-Wyszukaj `TODO` w całym projekcie — każdy komentarz wskazuje co zmienić:
-
-| Plik | Co zmienić |
-|---|---|
-| `app/layout.tsx` | Tytuł strony, opis, URL |
-| `components/Navbar.tsx` | Logo / inicjały |
-| `components/sections/Hero.tsx` | Nagłówek, opis, CTA |
-| `components/sections/About.tsx` | Imię, bio, zdjęcie, statystyki |
-| `components/sections/Services.tsx` | Usługi, ceny |
-| `components/sections/Portfolio.tsx` | Projekty, screenshoty, linki |
-| `components/sections/Contact.tsx` | E-mail, telefon, integracja wysyłki |
-| `components/Footer.tsx` | Imię, e-mail, linki social media |
-
----
-
-## Dodanie prawdziwego zdjęcia (sekcja "O mnie")
-
-1. Wrzuć zdjęcie do folderu `public/` np. `public/foto.jpg`
-2. W `components/sections/About.tsx` zastąp div z inicjałami:
-
-```tsx
-import Image from "next/image";
-
-// Zamiast:
-<div className="w-72 h-72 rounded-3xl bg-gradient-to-br ...">
-  <span className="text-7xl">JK</span>
-</div>
-
-// Wstaw:
-<Image
-  src="/foto.jpg"
-  alt="Jan Kowalski"
-  width={288}
-  height={288}
-  className="w-72 h-72 rounded-3xl object-cover"
-  priority
-/>
-```
-
----
-
-## Podpięcie formularza kontaktowego
-
-Formularz w `Contact.tsx` jest gotowy — musisz podpiąć wysyłkę e-mail.
-
-### Opcja A — Formspree (najprościej, 5 minut)
-
-1. Zarejestruj się na [formspree.io](https://formspree.io)
-2. Utwórz formularz, skopiuj endpoint
-3. W `Contact.tsx` zamień `handleSubmit`:
-
-```tsx
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus("sending");
-  await fetch("https://formspree.io/f/TWOJ_ID", {
-    method: "POST",
-    body: JSON.stringify(form),
-    headers: { "Content-Type": "application/json" },
-  });
-  setStatus("sent");
-};
-```
-
-### Opcja B — Resend (profesjonalnie)
-
-1. Utwórz konto na [resend.com](https://resend.com) (darmowy plan: 3000 e-mail/mies.)
-2. Dodaj `npm install resend`
-3. Utwórz `app/api/contact/route.ts` jako Route Handler
-
----
-
-## Deploy na Cloudflare Pages
-
-### Krok 1 — Wrzuć na GitHub
-
-```bash
-git init
-git add .
-git commit -m "init: strona wizytówka"
-# Utwórz repo na github.com, potem:
-git remote add origin https://github.com/TWOJ-LOGIN/moja-wizytowka.git
-git push -u origin main
-```
-
-### Krok 2 — Połącz z Cloudflare Pages
-
-1. Wejdź na [dash.cloudflare.com](https://dash.cloudflare.com) → **Workers & Pages**
-2. Kliknij **Create** → **Pages** → **Connect to Git**
-3. Wybierz repozytorium GitHub
-4. Ustaw build settings:
-   - **Framework preset:** Next.js
-   - **Build command:** `npx @cloudflare/next-on-pages@1`
-   - **Output directory:** `.vercel/output/static`
-5. Kliknij **Save and Deploy**
-
-Dostaniesz bezpłatny adres: `moja-wizytowka.pages.dev` + SSL.
-
-### Krok 3 — Własna domena
-
-1. Kup domenę (np. przez [Cloudflare Registrar](https://www.cloudflare.com/products/registrar/) ~$10/rok dla .com)
-2. W Cloudflare Pages → **Custom domains** → wpisz domenę
-3. Cloudflare automatycznie ustawi DNS i SSL
-
----
-
-## Technologie
-
-- [Next.js 15](https://nextjs.org) — framework React
-- [Tailwind CSS v4](https://tailwindcss.com) — stylowanie
-- [Lucide React](https://lucide.dev) — ikony
-- [TypeScript](https://www.typescriptlang.org) — typowanie
-
-## Struktura projektu
+## Project Structure
 
 ```
 ├── app/
-│   ├── globals.css       # style globalne + Tailwind
-│   ├── layout.tsx        # HTML layout + metadata SEO
-│   └── page.tsx          # strona główna
+│   ├── globals.css       # global styles + Tailwind
+│   ├── layout.tsx        # HTML layout + SEO metadata
+│   └── page.tsx          # main page
 ├── components/
 │   ├── Navbar.tsx
 │   ├── Footer.tsx
@@ -148,6 +26,47 @@ Dostaniesz bezpłatny adres: `moja-wizytowka.pages.dev` + SSL.
 │       ├── Portfolio.tsx
 │       └── Contact.tsx
 ├── lib/
-│   └── utils.ts          # helper cn()
-└── public/               # statyczne pliki (zdjęcia)
+│   └── utils.ts          # cn() helper
+└── public/               # static assets (images)
 ```
+
+## Getting Started
+
+```bash
+# Install dependencies
+npm install
+
+# Run development server
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Demo Sites (Portfolio)
+
+| Project | Description |
+|---|---|
+| Trattoria Bella | Restaurant website with menu, gallery, reservations |
+| Vitalis Fizjoterapia | Physiotherapy center with booking and pricing |
+| APEX Detailing | Premium car detailing studio |
+| Lumière Clinic | Aesthetic medicine and PMU clinic |
+
+## Deployment
+
+### Cloudflare Pages
+
+1. Push to GitHub
+2. Go to [dash.cloudflare.com](https://dash.cloudflare.com) - Workers & Pages
+3. Create - Pages - Connect to Git
+4. Build settings:
+   - **Framework preset:** Next.js
+   - **Build command:** `npx @cloudflare/next-on-pages@1`
+   - **Output directory:** `.vercel/output/static`
+5. Save and Deploy
+
+### Contact Form Integration
+
+The contact form in `Contact.tsx` is ready to connect. Recommended options:
+
+- **Formspree** (simplest) - [formspree.io](https://formspree.io)
+- **Resend** (professional) - [resend.com](https://resend.com)
